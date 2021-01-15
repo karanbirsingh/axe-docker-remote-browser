@@ -12,7 +12,7 @@ Steps:
 
 How this works:
 - `start-browser-server.js` (on host) creates a new puppeteer instance each time `https://localhost:8585/browser` is hit & returns the [websocket debugger URL](https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#browserwsendpoint)
-- `index.js` (in docker) requests a new browser, retreives the websocket endpoint, and connects to it via [`puppeteer.connect`](https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteerconnectoptions)
+- `index.js` (in docker) requests a new browser, retrieves the websocket endpoint, and connects to it via [`puppeteer.connect`](https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteerconnectoptions)
 - the `axe-core` scan runs in the host browser, and results are processed within the container
 
 It has been tested on a Windows host so far. See use of `host.docker.internal` [here](https://github.com/karanbirsingh/axe-docker-remote-browser/blob/59117a5151e7ff231872d9ff00c1518880c1c758/index.js#L12) to manage access to the host service. 
